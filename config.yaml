@@ -1,0 +1,17 @@
+baseURL: "https://repeatr.io/"
+title: "Timeless Stack"
+
+contentDir:    "content"
+themesDir:     "themes"
+layoutDir:     "layouts" # aka templates (but these are mostly in themes anyway)
+publishDir:    "_publish"
+archetypeDir:  "archetypes" # aka "content templates" aka "i will never use these"
+staticDir:     "static" # avoids processing, but do not understand why distinct from assertDir
+dataDir:       "data" # avoids processing, but do not understand why distinct from assertDir
+assetDir:      "assets" # avoids processing, but do not understand why there's three of these
+resourceDir:   "_resources" # appears to be used by hugo when generating things?
+
+#disableLiveReload: true
+#disableHugoGeneratorInject: true
+
+theme: "book"
