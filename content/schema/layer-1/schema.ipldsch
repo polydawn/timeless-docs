@@ -1,0 +1,47 @@
+### ----------------------------
+## Recall we have the following types
+##  already defined from Layer 0:
+##    - AbsPath
+##    - WareID
+##    - PackType
+##    - PackFilter
+### ----------------------------
+
+## Formula encodes some computation to execute.
+## It's appropriate to think of it as a
+## fully-curried function: all of its arguments
+## have already been bound to concrete values,
+## and it is ready to invoke.
+##
+## Evaluating a Formula yields a RunRecord.
+##
+type Formula struct {
+    inputs {AbsPath:WareID}
+    action FormulaAction
+    outputs {AbsPath:OutputSpec}
+}
+
+type FormulaAction struct {
+    exec [String]
+    cwd optional String
+    env optional {String:String}
+    userinfo optional struct {
+        uid optional Int
+        gid optional Int
+        username optional String
+        homedir optional AbsPath
+    }
+}
+
+type OutputSpec struct {
+    packtype PackType
+    filter optional PackFilter
+}
+
+type RunRecord struct {
+    guid String
+    time Int
+    formulaID String
+    exitcode Int
+    results {AbsPath:WareID}
+}

@@ -16,3 +16,6 @@ resourceDir:   "hugo/_resources" # appears to be used by hugo when generating th
 disableKinds: ["taxonomy", "taxonomyTerm"]
 
 theme: "book"
+
+params:
+  BookSection: "*"

@@ -1,0 +1,20 @@
+{
+  "formula": {
+    "inputs": {
+      "/": "tar:6q7G4hWr283FpTa5Lf8heVqw9t97b5VoMU6AGszuBYAz9EzQdeHVFAou7c4W9vFcQ6"
+    },
+    "action": {
+      "exec": ["/bin/mkdir", "-p", "/task/out/beep"]
+    },
+    "outputs": {
+      "/task/out": {"packtype": "tar"}
+    }
+  },
+  "context": {
+    "fetchUrls": {
+      "/": [
+        "ca+https://repeatr.s3.amazonaws.com/warehouse/"
+      ]
+    }
+  }
+}

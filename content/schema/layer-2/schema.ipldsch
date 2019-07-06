@@ -1,0 +1,56 @@
+### ----------------------------
+## Recall we have the following types
+##  already defined from Layer 0:
+##    - AbsPath
+## And from Layer 1:
+##    - FormulaAction
+### ----------------------------
+
+type Module struct {
+    imports {SlotName:ImportRef}
+    steps   {StepName:Step}
+    exports {ItemName:SlotRef}
+}
+
+type Step union {
+    | Operation "operation"
+    | Module "module"
+} representation keyed
+
+## Operation is analogous to Formula, but lifted
+## into Layer 2, and using *named* references (SlotRef)
+## instead of WareID hashes for inputs.
+##
+## Each Operation is compiled down to a Formula in order
+## to be evaluated; so, evaluating an Operation in effect
+## produces a Formula _and_ a RunRecord.
+##
+## Because Operations are written with named references,
+## we can write a bunch of connected Operations at one time,
+## before having to evaluate any of them; and then evaluate
+## the whole sequence (literally, Module) at once.
+##
+type Operation struct {
+    inputs {AbsPath:SlotRef}
+    action FormulaAction
+    outputs {SlotName:AbsPath}
+}
+
+type StepName string
+type SlotName string
+
+## SlotRef is a struct in nature, but serialized as a string:
+## when serialized, it looks like "{optional StepName}.{SlotName}".
+type SlotRef struct {
+    ## If specified, this SlotRef will refer to an output
+    ## of the step with this StepName;
+    ## Lack of a stepName means it's a reference to the
+    ## module imports rather than another step.
+    stepName optional StepName
+
+    ## SlotName corresponds to either an Operation output,
+    ## or to a Module import, dependong on if stepName is set.
+    slotName SlotName
+} representation string sequence (join=".")
+
+### TODO: ImportRef -- needs a lot of description, it's Fun

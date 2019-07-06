@@ -1,0 +1,16 @@
+## packfilter is monstrously hard to describe tersely.
+## which is almost certainly an inditement against the correctness of it,
+## but here we are, for now.
+
+## this translation is completely, wrong, and needs review.
+
+type PackFilter struct {
+	uid optional nullable Int # undefined field reserved to mean "interpreter's default"; null means "keep".
+	gid optional nullable Int # undefined field reserved to mean "interpreter's default"; null means "keep".
+	sticky optional Bool
+	# todo setid and dev have "keep"|"ignore"|"reject"
+	# n.b. optionality *does* raise the cardinality of members +1 and that's correct.
+} representation string pairs (
+	entrySep=","
+	pairDelim="="
+)

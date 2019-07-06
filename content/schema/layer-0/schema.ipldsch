@@ -1,0 +1,19 @@
+## WareID is semantically a "{packtype}:{hash}" tuple, colon-delimited,
+## but we treat it as a string throughout the API for simplicity in using
+## WareID as a key in maps.
+type WareID string
+
+## PackType is an enumeration of known ways for packing
+## a Fileset into a Ware (and hashing it into a WareID).
+## See repeatr.io/glossary if these terms are unfamiliar.
+type PackType enum  {
+	| "tar"
+	| "git"
+	| "zip"
+	# More values are possible; these are examples
+	#  of ones that are well known today!
+}
+
+type PackFilter string
+
+type AbsPath string
