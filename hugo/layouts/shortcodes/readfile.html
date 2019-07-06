@@ -1,0 +1,3 @@
+{{- $file := .Get "file" -}}
+{{- $dir := .Page.File.Dir -}}
+{{- printf "%s/%s" $dir $file | readFile | safeHTML -}}
