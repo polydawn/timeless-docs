@@ -1,4 +1,5 @@
 
+// This is the menu on the *left*, that goes over files overall.
 .book-menu {
 	border-right: 1px solid;
 
@@ -14,7 +15,11 @@
 	a {	}
 }
 
+// This is the menu on the *right*, which covers section links.
 .book-toc {
+	// This could use some more elements at the top to *say* it's in-page nav.
+	//  Doing so requires overriding 'toc.html' in layouts.
+
 	border-left: 1px solid;
 
 	nav {
@@ -22,6 +27,7 @@
 	}
 
 	li {
+		// &::before { content: "→" } // i'd put this here, but it'd reveal how many odd empty lists there are.
 		margin-top: 0.7em;
 		margin-bottom: 0.7em;
 	}
