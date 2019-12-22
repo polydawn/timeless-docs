@@ -1,7 +1,7 @@
 
 // This is the menu on the *left*, that goes over files overall.
 .book-menu {
-	border-right: 1px solid;
+	border-right: 2px solid $gray-100;
 
 	nav {
 		padding: 0.7rem;
@@ -20,7 +20,7 @@
 	// This could use some more elements at the top to *say* it's in-page nav.
 	//  Doing so requires overriding 'toc.html' in layouts.
 
-	border-left: 1px solid;
+	border-left: 2px solid $gray-100;
 
 	nav {
 		padding: 0.7em;
@@ -33,5 +33,19 @@
 
 	a {
 		&::before { content: "→ " }
+	}
+}
+
+body {
+	scrollbar-color: dark; // unclear to me if this does much yet in practice, but, effort made.
+
+	::-webkit-scrollbar {
+		width: 4px;
+	}
+	::-webkit-scrollbar-track {
+		background: #000000;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #343a3f;
 	}
 }
