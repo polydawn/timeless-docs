@@ -27,10 +27,11 @@
 	}
 
 	li {
-		// &::before { content: "→" } // i'd put this here, but it'd reveal how many odd empty lists there are.
 		margin-top: 0.7em;
 		margin-bottom: 0.7em;
 	}
 
-	a {	}
+	a {
+		&::before { content: "→ " }
+	}
 }
