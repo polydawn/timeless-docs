@@ -36,6 +36,36 @@
 	}
 }
 
+// The top-left corner element.
+//  Seealso 'layout/partials/docs/brand.html'.
+.brand {
+	background-color: #6c3293;
+	h2 {
+		color: #BAE;
+	}
+	border-bottom: 4px solid #94b;
+	margin: -0.7rem; // Do the opposite of nav.padding.
+	margin-bottom: 0;
+	padding: 0.7rem;
+	text-align: center;
+}
+
+.markdown h1 {
+	&::before { content: "<<< " }
+	&::after { content: " >>>" }
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+article h1, h2, h3, h4 {
+	color: #E2B;
+}
+
+pre {
+	// The book theme increases the line height on markdown content, and it leaks.  Fix.
+	line-height: 1.1em;
+}
+
 body {
 	scrollbar-color: dark; // unclear to me if this does much yet in practice, but, effort made.
 
