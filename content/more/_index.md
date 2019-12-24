@@ -28,6 +28,7 @@ as well as about our take on software packaging:
 #### Solving the distributed naming problem in package management -- at IPFS Camp 2019
 
 <img src="naming-talk-2019.png" width=300 style="float: right; margin:1em 2em;">
+
 This talk covers problems from a very meta level, and is barely specific to Repeatr and the Timeless Stack at all.  It also does not regard Radix.  That said, it's the shortest thing, and covers the problem space well, and so is **probably the *one thing* on this page you should definitely watch**.
 
 - Recording: [link](https://www.youtube.com/watch?v=z7VKDD0pbJU) (video; youtube) (_7 minutes_)
@@ -38,6 +39,7 @@ This talk covers problems from a very meta level, and is barely specific to Repe
 #### Path-agnostic binaries, co-installable libraries, and How To Have Nice Things -- at All Systems Go 2018
 
 <img src="pagno-talk-2018.png" width=300 style="float: right; margin:1em 2em;">
+
 This talk is fairly heavy on technical details: it talks about binaries, dynamic linking strategies, and system design.  While the Timeless Stack is not discussed, the concepts regarded here are central to Radix design -- particularly the linking strategy proposed at the end of the talk.
 
 - Abstract: [link](https://cfp.all-systems-go.io/en/ASG2018/public/events/204) (html)
@@ -49,6 +51,7 @@ This talk is fairly heavy on technical details: it talks about binaries, dynamic
 #### Repeatable, functional builds with Repeatr -- at Bornhack 2018
 
 <img src="bornhack-talk-2018.png" width=300 style="float: right; margin:1em 2em;">
+
 This talk focuses concretely on Repeatr.  If you want a deep dive with lots of concrete examples, this may be useful.
 
 - Abstract: [link](https://bornhack.dk/bornhack-2018/program/#/event/repeatable-functional-builds-with-repeatr) (html)
