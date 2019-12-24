@@ -10,26 +10,29 @@ Glossary
 <style>
 h3 {
 	display: inline;
-	font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
-	font-weight: 300;
-	color: #720 !important;
+	font-size: 1.5rem !important;
+	color: #F70 !important;
+}
+h3:before {
+	content: " ";
+	margin: 4em 0;
 }
 h3:not(:first-of-type):before {
 	content: " ";
 	display: block;
-	border: 1px solid #EEE;
-	margin: 1em 0;
+	border: 1px dashed #444;
+	margin: 2em 0;
 }
 h3:after {
 	content: ":";
-	padding: 0;
-	border: 0;
-	margin: 0 0.5ex 0 -0.2em;
+	margin: 0 0.5ex 0 0.3ex;
 }
 h3 + p {
 	display: inline;
-	font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 	font-size: 1.2rem;
+}
+p {
+	font-size: 0.9rem;
 }
 </style>
 
