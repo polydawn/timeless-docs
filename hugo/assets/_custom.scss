@@ -61,6 +61,11 @@ article h1, h2, h3, h4 {
 	color: #E2B;
 }
 
+article h3, h4 {
+	color: #928;
+}
+
+
 pre {
 	// The book theme increases the line height on markdown content, and it leaks.  Fix.
 	line-height: 1.1em;
