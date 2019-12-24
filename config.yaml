@@ -15,6 +15,11 @@ resourceDir:   "hugo/_resources" # appears to be used by hugo when generating th
 #disableHugoGeneratorInject: true
 disableKinds: ["taxonomy", "taxonomyTerm"]
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 theme: "book"
 
 params:
