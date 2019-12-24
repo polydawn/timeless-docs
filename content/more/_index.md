@@ -14,7 +14,7 @@ Reference Projects
 - [polydawn/catalog](https://github.com/polydawn/catalog) -- a git repo containing a snapshot of a [Timeless Catalog](/glossary#catalog) with a handful of projects tracked.
 - [polydawn/radix](https://github.com/polydawn/radix) -- a repo containing the work-in-progress of the Radix project, this is also chock full of working examples of using [Reach](/getting-started/hello-reach).
 	- especially [radix//docs](https://github.com/polydawn/radix/tree/master/docs) has some useful outlines of scope and important techniques.
-	- especially (radix//workspace/...)(https://github.com/polydawn/radix/tree/master/workspace/early.radix.polydawn.io) has some interesting worked examples of builds.
+	- especially [radix//workspace/...](https://github.com/polydawn/radix/tree/master/workspace/early.radix.polydawn.io) has some interesting worked examples of builds.
 
 
 Talks, Slides & Recordings
