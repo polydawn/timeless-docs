@@ -96,10 +96,85 @@ There should be a self reinforcing energy to all of this: we want tools that wor
 Strategy
 --------
 
+### familiar tools
+
+Specifically, the primary target and scope can be summarized as “must support linux-like systems” and “must pass state primarily by familiar ‘file’-like abstractions”.
+(In other words -- “it should taste like containers” -- this is a proven path to successful adoption that lets others use what they know and pivot towards our tooling incrementally.  Incremental is good.)
+This scope may extend to more systems in the future, but will start here.
+
+### anything not everything
+
+The Timeless Stack tools need to support *anything* -- anything you want to put in them, with no special consideration required -- rather than supporting "everything", but needing plugins to do it.  This stands in contrast to most other build tools.
+
 ### breaking down the problem
+
+There are five major sets of problems that need to be addressed:
+
+1. Framing and hermetic execution and fileset-slinging core
+2. Coordination systems for connecting graphs of executions and outputs -- both for authoring graphs of intent, and then precipitating graphs of actual outcome (which can be repeated).
+3. Extended Coordination: these systems need to work for both directly-communicating people (e.g. projects and close-knit teams -- easy) and at large (e.g. uncoordinated swarms of projects at scale on github, etc -- harder!) without compromising on the Timeless philosophy.
+4. Responsible Packaging -- community standards for how to prepare software to work well with immutable systems and minimal environment presumptions
+5. Last-mile applications... such as CI, new "app stores", etc -- given the platform core, building these should become near-trivial!
+
+Some of these are easier than others, e.g. Part 1 can be done nearly off-the-shelf with existing components.
+Part 2 is something that simply needs doing.
+Part 3 is pretty much a leading edge research problem in distributed workflow UX, but we're doing it anyway because it needs to be done.
+Part 4 is a community standard thing rather than plain code, so either easier or harder depending on your point of view.
+Part 5 is actually quite open-ended, and we expect to see lots of independent projects flourish there!
+
+The most important thing is to identify and isolate these problems;
+in identifying their scope, we make them tractable.
 
 ### composable tools
 
+Each of the layers of problems should be solved by its own tooling.
+
+These tools should work well together, but also be usable independently.
+
+See the [Tools Reference](/tools) pages for an index of each of the separate tools we currently develop.
+
 ### API and checkpoint driven
 
+Each of our tools should work declaratively, be easily driven by APIs (not just CLIs and sloppy glue),
+and be "checkpoint driven" -- which means the data passed between the APIs should be possible to serialize,
+and -- at that instant -- inspect it, save it, repeat it, shift it to another machine, whatever.
+*Code* should not be passed between processes; documents should.
+
+"API" should mean simple common formats -- JSON piped to `stdin` and JSON streamed to `stdout` is a solid API.
+
+See the [design/layers](/design/layers/) page for more about our API layers.
+
 ### hash all the things
+
+One key theme we'll find recur overall in the tactics so often that it might as well be called strategy:
+**we're going to hash _everything_.**
+Hashes let us build content-addressable systems, which work well in decentralized systems;
+hashes give us ways to dodge naming problems which would otherwise introduce coordination issues, which makes interoperability easier even for people working independently;
+and hashes create quick ways to detect if data is identical at massive scales, which is critical to reproducibility detection.
+Since all three of these properties are so critically useful, executing strategic design with a "hashes first" philosophy gives the Timeless Stack a distinct style -- and a distinct advantage.
+
+
+Tactics
+-------
+
+Tactics are reducing strategy to action.
+
+For us, "tactics" are "tools".
+
+- the `rio` tool provides content addressable file warehousing, using any of a variety of mechanisms, so long as they work by hash.
+- the "formulas" specification provides a way to describe (and hash) a computation we want to explore.
+- the "runrecords" specificaion provides a way to describe (and hash) the *results* of a formula.
+- the `repeatr` tool provides hermetic isolation for executing other tools -- following a "formula", and reporting a "runrecord"! -- using containers to deliver it.
+- the "modules" specification provides a way to describe graphs of computations, which pass data between them in discrete steps -- this enables larger scale work than formulas alone.
+- the `reach` tool provides a way to execute modules easily.
+- the "catalog" specifications, combined with standards for "replayable modules", establishes just enough standards for name->hash mappings to make them sharable -- while leaving just enough explicitly *unanswered* to spur the evolution of a clear separation between metadata circulation and version selection problems.
+- the `reach` tool also bundles features for authoring catalogs -- both updating the name->hash mappings, attaching replay instructions to those, and sharing the whole thing with others.
+- in ecosystem standards, the emphasis on non-turing-complete tools for templating and manipulating catalogs and modules results in a more inspectable and analyzable ecosystem even as it increases in size and scale and number of uncoordinated authors.
+
+You can read more about these things in the rest of the site.
+
+Some of these tools are complete!  Some of them are less complete.
+All of them are prototypes, and if in experimenting with them, we find that
+they don't sufficiently fit the mission, we can replace them.
+
+Contributors to all these things are welcome!
